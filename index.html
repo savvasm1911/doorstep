@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Training: New Take Away Process (Buzzer System)</title>
+    <style>
+        :root {
+            --primary: #2e7d32; /* Green for Take Away / Foody style */
+            --dark: #1e1e24;
+            --light: #f5f5f7;
+            --accent: #d32f2f; /* Red for Buzzer / Call */
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--dark); color: var(--light); overflow: hidden; }
+        
+        .slide-container { position: relative; width: 100vw; height: 100vh; }
+        .slide { 
+            position: absolute; width: 100%; height: 100%; padding: 40px; 
+            display: flex; flex-direction: column; justify-content: space-between;
+            opacity: 0; transition: opacity 0.5s ease-in-out; pointer-events: none;
+            z-index: 1;
+        }
+        .slide.active { opacity: 1; pointer-events: auto; z-index: 2; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .header h2 { color: var(--light); font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .slide-num { background: var(--primary); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; }
+        
+        .content { flex: 1; display: flex; gap: 40px; align-items: center; margin: 30px 0; overflow: hidden; }
+        .text-side { flex: 1; font-size: 20px; line-height: 1.6; }
+        .text-side h1 { font-size: 45px; color: var(--primary); margin-bottom: 20px; line-height: 1.2; }
+        .text-side h3 { font-size: 28px; color: var(--light); margin-bottom: 20px; }
+        .text-side ul { list-style: none; }
+        .text-side li { margin-bottom: 15px; position: relative; padding-left: 30px; }
+        .text-side li::before { content: "➔"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        
+        .media-side { flex: 1; height: 100%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.03); border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); max-height: 70vh; }
+        .media-side img, .media-side video { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+        
+        .important-box { background: rgba(211, 47, 47, 0.1); border-left: 5px solid var(--accent); padding: 15px; border-radius: 4px; margin-top: 20px; font-weight: bold; }
+        
+        .controls { position: absolute; bottom: 30px; right: 40px; display: flex; gap: 15px; z-index: 10; }
+        .btn { background: var(--primary); color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; cursor: pointer; border-radius: 5px; transition: 0.2s; }
+        .btn:hover { background: #1b5e20; transform: translateY(-2px); }
+        .btn:disabled { background: #555; cursor: not-allowed; transform: none; }
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        
+        <div class="slide active">
+            <div class="header"><h2>Staff Training</h2><span class="slide-num">1 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h1>New Take Away Orders Process</h1>
+                    <h3 style="color: #a5d6a7;">Operation with Buzzer System (Syscall)</h3>
+                    <p style="color: #aaa; margin-top: 20px;">A step-by-step guide for proper service, counter decluttering, and maintaining our strictly Take Away character.</p>
+                </div>
+                <div class="media-side">
+                    <img src="assets/img2.png" alt="Syscall Buzzers">
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="header"><h2>Why are we changing the process?</h2><span class="slide-num">2 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h3>Solving 2 Main Problems:</h3>
+                    <ul>
+                        <li><strong>No more searching for customers:</strong> Customers often wandered off or got "lost," and staff wasted valuable time trying to find them.</li>
+                        <li><strong>We are STRICTLY a Take Away shop:</strong> Staff <u>does not</u> carry food outside or to tables. Customers must come to the counter themselves for pickup.</li>
+                    </ul>
+                    <div class="important-box">
+                        Goal: Zero wasted time for staff, absolute customer autonomy!
+                    </div>
+                </div>
+                <div class="media-side">
+                    <img src="assets/εικόνα_Viber_2026-06-13_13-35-29-643.jpg" alt="Syscall Console and Buzzers">
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="header"><h2>Step 1: Order Taking & POS</h2><span class="slide-num">3 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h3>System Registration:</h3>
+                    <ul>
+                        <li>Open a new order and select <strong>"Take away"</strong>.</li>
+                        <li>Before finalizing, press <strong>"Invoice Note"</strong>.</li>
+                        <li>Type the buzzer number in the <strong>"PAGER NUMBER"</strong> field on the POS.</li>
+                        <li>Take the corresponding buzzer from the charging base and hand it to the customer along with the receipt.</li>
+                    </ul>
+                </div>
+                <div class="media-side">
+                    <video controls muted autoplay loop style="max-height: 100%;">
+                        <source src="assets/order.mp4" type="video/mp4">
+                        Syscall process video.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="header"><h2>Step 2: Customer Waiting</h2><span class="slide-num">4 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h3>What does the customer do?</h3>
+                    <ul>
+                        <li>The customer can sit in the outdoor area or wait nearby without blocking the pickup counter.</li>
+                        <li><strong>We don't look for them:</strong> We know that when the time comes, they will be notified automatically.</li>
+                        <li>The buzzer displays their number and has clear instructions on it: <em>"When the beeper is vibrating, Please come to the pick-up desk."</em></li>
+                    </ul>
+                </div>
+                <div class="media-side">
+                    <img src="assets/εικόνα_Viber_2026-06-13_13-35-24-917.jpg" alt="Buzzer in waiting mode">
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="header"><h2>Step 3: Preparation & Paging</h2><span class="slide-num">5 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h3>How to call the customer:</h3>
+                    <ul>
+                        <li>As soon as the kitchen prepares the order and it is packed in the bag, check the Pager number from the printed ticket.</li>
+                        <li>On the central Syscall console, <strong>type the number</strong> of the buzzer.</li>
+                        <li>Press the <strong>CALL</strong> button.</li>
+                    </ul>
+                    <div class="important-box" style="background: rgba(46, 125, 50, 0.1); border-left-color: var(--primary);">
+                        Tip: Watch the video on the right to see the exact sequence of keys on the console!
+                    </div>
+                </div>
+                <div class="media-side">
+                    <video controls muted autoplay loop style="max-height: 100%;">
+                        <source src="assets/callcust.mp4" type="video/mp4">
+                        Syscall process video.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="header"><h2>Step 4: Pickup at the Counter</h2><span class="slide-num">6 / 6</span></div>
+            <div class="content">
+                <div class="text-side">
+                    <h3>Order Completion:</h3>
+                    <ul>
+                        <li>The customer's buzzer starts vibrating, flashing red, and making a sound.</li>
+                        <li>The customer <strong>returns to the pickup counter on their own</strong>.</li>
+                        <li><strong>Collect the buzzer</strong> from the customer and place it back on the charging base (to make it stop ringing).</li>
+                        <li>Hand them their order.</li>
+                    </ul>
+                    <div class="important-box">
+                        REMEMBER: We do not take the food to the customer. Pickup is done exclusively by them at the counter!
+                    </div>
+                </div>
+                <div class="media-side">
+                    <video controls muted autoplay loop style="max-height: 100%;">
+                        <source src="assets/back.mp4" type="video/mp4">
+                        Syscall process video.
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" id="prevBtn" onclick="changeSlide(-1)" disabled>Back</button>
+            <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function changeSlide(direction) {
+            if (currentSlide + direction < 0 || currentSlide + direction >= slides.length) return;
+
+            slides[currentSlide].classList.remove('active');
+            currentSlide += direction;
+            slides[currentSlide].classList.add('active');
+
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+            
+            if(currentSlide === slides.length - 1) {
+                nextBtn.innerText = "Finish";
+            } else {
+                nextBtn.innerText = "Next";
+            }
+        }
+
+        // Keyboard control (Right/Left arrows)
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "ArrowRight") {
+                changeSlide(1);
+            } else if (event.key === "ArrowLeft") {
+                changeSlide(-1);
+            }
+        });
+    </script>
+</body>
+</html>
